@@ -43,9 +43,7 @@ def create_database(db_path):
         );
     """)
 
-    # ================ NEW TABLE: Tx (Transcripts) ================
-    # This table stores transcript information from the TSV file
-    # Each transcript has a unique identifier, version, and genomic coordinates
+    # Create table to store Transcripts informations
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Tx (
             Tx_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -79,9 +77,7 @@ def create_database(db_path):
         );
     """)
 
-    # ================ NEW TABLE: sv_tx (Association between SV and Transcripts) ================
-    # This table stores the relationship between structural variants and transcripts
-    # It includes detailed information about how the SV overlaps with the transcript
+    #Create new table : sv_tx (Association between SV and Transcripts)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS sv_tx (
             SV_id INTEGER NOT NULL,
@@ -653,7 +649,7 @@ def import_tsv(db_path, tsv_file_path):
     for gene_name, count in rows:
         print(f"   - {gene_name}: {count} SVs")
 
-    # ================ NEW STATISTICS: Transcripts most affected by SVs ================
+    # Generate Transcripts statistics - show which transcripts are most affected by SVs
     print(f"\n   Transcripts most frequently affected by structural variants:")
     cursor.execute("""
         SELECT t.Tx_name, t.Tx_version, COUNT(DISTINCT st.SV_id) as sv_count,
@@ -672,7 +668,7 @@ def import_tsv(db_path, tsv_file_path):
         overlap_str = f" (avg CDS overlap: {avg_overlap:.1f}%)" if avg_overlap else ""
         print(f"   - {tx_name}{version_str}: {count} SVs{overlap_str}")
 
-    # ================ NEW STATISTICS: SVs causing frameshifts ================
+    # Generate which SVs is causing frameshifts
     print(f"\n   Structural variants causing frameshifts:")
     cursor.execute("""
         SELECT sv.AnnotSV_ID, COUNT(DISTINCT st.Tx_id) as affected_transcripts

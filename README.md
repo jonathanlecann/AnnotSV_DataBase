@@ -13,7 +13,7 @@ D’importer des fichiers AnnotSV (.tsv) et d’enregistrer les informations sou
 
 De générer automatiquement des statistiques détaillées à la fin de chaque import (gènes les plus affectés, frameshifts, fréquence des SV, etc.).
 
-🧩 Technologies utilisées
+🧩 Technologies utilisées :
 
 Python 3
 
@@ -25,7 +25,7 @@ Argparse
 
 OS (gestion de fichiers)
 
-🏗️ Fonctionnalités principales
+🏗️ Fonctionnalités principales : 
 
 🧱 Création de base	Génère une base SQLite prête à accueillir les données AnnotSV
 
@@ -70,7 +70,7 @@ python AnnotSV_DB.py --stats --db AnnotSV_DB.db
 …pour permettre de consulter les statistiques de la base sans refaire un import.
 Cela rendrait l’outil plus flexible et réutilisable dans le temps.
 
-📦 Installation
+📦 Installation :
 
 Cloner le dépôt :
 
@@ -82,6 +82,9 @@ Aucune dépendance externe requise
 Le script repose uniquement sur des bibliothèques natives de Python :
 
 import sqlite3
+
 import csv
+
 import argparse
+
 import os

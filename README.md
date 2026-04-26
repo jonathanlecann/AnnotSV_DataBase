@@ -1,4 +1,5 @@
 🧬 AnnotSV Database
+
 📖 Description
 
 AnnotSV Database est un projet développé dans le cadre de mon stage de 1ʳᵉ année de BTS SIO (option SISR) au sein de l’unité INSERM UMR1078 (Brest).
@@ -25,14 +26,20 @@ Argparse
 OS (gestion de fichiers)
 
 🏗️ Fonctionnalités principales
-Fonctionnalité	Description
+
 🧱 Création de base	Génère une base SQLite prête à accueillir les données AnnotSV
+
 📥 Importation de fichiers	Intègre un ou plusieurs fichiers .tsv AnnotSV
+
 🧩 Analyse de variants	Détection de variants identiques (>80 % d’overlap)
+
 📊 Statistiques automatiques	Affiche un résumé complet à la fin de chaque import
+
 🧮 Calcul de fréquence	Calcule la fréquence des SV par échantillon
-🧬 Gènes et transcripts	Identifie les gènes et transcripts affectés par chaque SV
-⚙️ Utilisation
+
+🧬 Gènes et transcripts	Identifie les gènes et transcripts affectés par chaque SV.
+
+⚙️ Utilisation :
 
 Voici les principales commandes disponibles :
 
